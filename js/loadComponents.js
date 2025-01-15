@@ -19,5 +19,14 @@ fetch('partials/footer.html')
     })
     .then(data => {
         document.getElementById('footer-placeholder').innerHTML = data;
+
+        const currentYear = new Date().getFullYear();
+        const yearElement = document.getElementById('current-year');
+
+        if (yearElement) {
+            yearElement.textContent = currentYear;
+        } else {
+            console.error('Failed to set current year: element not found');
+        }
     })
     .catch(error => console.error(error));
