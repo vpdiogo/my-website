@@ -1,32 +1,76 @@
-fetch('partials/header.html')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to load header: ' + response.status);
-        }
-        return response.text();
-    })
-    .then(data => {
-        document.getElementById('header-placeholder').innerHTML = data;
-    })
-    .catch(error => console.error(error));
+// Apply dark mode immediately to prevent flash
+function applyDarkModeEarly() {
+    if (localStorage.getItem('dark-mode') === 'true') {
+        document.body.classList.add('dark-mode');
+    }
+}
 
-fetch('partials/footer.html')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to load footer: ' + response.status);
-        }
-        return response.text();
-    })
-    .then(data => {
-        document.getElementById('footer-placeholder').innerHTML = data;
+// Apply dark mode before any loading
+applyDarkModeEarly();
 
+// Function to load components more smoothly
+async function loadComponents() {
+    const startTime = Date.now();
+
+    try {
+        // Load header and footer in parallel
+        const [headerResponse, footerResponse] = await Promise.all([
+            fetch('partials/header.html'),
+            fetch('partials/footer.html')
+        ]);
+
+        if (!headerResponse.ok) {
+            throw new Error('Failed to load header: ' + headerResponse.status);
+        }
+        if (!footerResponse.ok) {
+            throw new Error('Failed to load footer: ' + footerResponse.status);
+        }
+
+        const [headerData, footerData] = await Promise.all([
+            headerResponse.text(),
+            footerResponse.text()
+        ]);
+
+        // Insert the components
+        document.getElementById('header-placeholder').innerHTML = headerData;
+        document.getElementById('footer-placeholder').innerHTML = footerData;
+
+        // Update the year in the footer
         const currentYear = new Date().getFullYear();
         const yearElement = document.getElementById('current-year');
 
         if (yearElement) {
             yearElement.textContent = currentYear;
-        } else {
-            console.error('Failed to set current year: element not found');
         }
-    })
-    .catch(error => console.error(error));
+
+        // Wait for a minimum time to avoid very fast flashes
+        const elapsedTime = Date.now() - startTime;
+        const minLoadTime = 150; // milliseconds
+
+        if (elapsedTime < minLoadTime) {
+            await new Promise(resolve => setTimeout(resolve, minLoadTime - elapsedTime));
+        }
+
+        // Mark the page as loaded to enable the transition
+        document.body.classList.add('loaded');
+
+    } catch (error) {
+        console.error('Error loading components:', error);
+        // Even on error, wait for the minimum time and mark as loaded
+        const elapsedTime = Date.now() - startTime;
+        const minLoadTime = 150;
+
+        if (elapsedTime < minLoadTime) {
+            await new Promise(resolve => setTimeout(resolve, minLoadTime - elapsedTime));
+        }
+
+        document.body.classList.add('loaded');
+    }
+}
+
+// Load components when the DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadComponents);
+} else {
+    loadComponents();
+}

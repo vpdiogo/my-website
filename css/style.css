@@ -6,6 +6,59 @@ body {
     color: #333;
     max-width: 800px;
     margin: 0 auto;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+/* Link preload for smoother navigation */
+a[href$=".html"] {
+    transition: all 0.2s ease;
+}
+
+a[href$=".html"]:hover {
+    transform: translateY(-1px);
+}
+
+/* Subtle loading indicator */
+body:not(.loaded)::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #007bff, transparent);
+    animation: loading 1.5s infinite;
+    z-index: 9999;
+}
+
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Disable animations initially to avoid FOUC */
+body:not(.loaded) header,
+body:not(.loaded) main,
+body:not(.loaded) footer {
+    animation: none !important;
+    opacity: 0;
+}
+
+/* Reserve space for the header during loading */
+#header-placeholder {
+    min-height: 140px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Reserve space for the footer during loading */
+#footer-placeholder {
+    min-height: 80px;
+    transition: all 0.3s ease-in-out;
 }
 
 header {
@@ -17,6 +70,16 @@ header {
     max-width: 800px;
     width: 100%;
     margin: 0 auto;
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: slideInFade 0.4s ease-out forwards;
+}
+
+@keyframes slideInFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 header h1 {
@@ -163,6 +226,16 @@ main {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: slideInFadeUp 0.5s ease-out 0.1s forwards;
+}
+
+@keyframes slideInFadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 hr {
@@ -225,6 +298,9 @@ footer {
     max-width: 800px;
     bottom: 0;
     text-align: left;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: slideInFadeUp 0.4s ease-out 0.2s forwards;
 }
 
 .footer-content {
@@ -291,7 +367,7 @@ footer p {
     background-color: #545b62;
 }
 
-/* Dark mode para botões */
+/* Dark mode for buttons */
 body.dark-mode .game-item {
     border-color: #555;
     background-color: #3a3a3a;
