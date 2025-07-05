@@ -1,13 +1,3 @@
-// Apply dark mode immediately to prevent flash
-function applyDarkModeEarly() {
-    if (localStorage.getItem('dark-mode') === 'true') {
-        document.body.classList.add('dark-mode');
-    }
-}
-
-// Apply dark mode before any loading
-applyDarkModeEarly();
-
 // Function to load components more smoothly
 async function loadComponents() {
     const startTime = Date.now();
