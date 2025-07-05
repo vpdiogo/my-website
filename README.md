@@ -35,6 +35,9 @@ Personal website developed with HTML, CSS, and vanilla JavaScript, focused on si
 # Install dependencies
 npm install
 
+# Start development server
+npm start
+
 # Run all tests
 npm test
 
@@ -59,33 +62,38 @@ npm run lint:css
 
 ### CI/CD Pipeline
 
-The project uses GitHub Actions with two workflows:
+The project uses GitHub Actions for continuous integration:
 
-1. **Main CI/CD** (`.github/workflows/ci.yml`):
-   - **Testing**: Jest for unit tests
-   - **Validation**: HTML and CSS linting  
-   - **Coverage**: Code coverage reports
-   - **Deploy**: Automatic to GitHub Pages (main branch only)
+**Main CI** (`.github/workflows/ci.yml`):
+- **Testing**: Jest for unit tests with coverage
+- **Validation**: HTML validation and CSS linting
+- **Quality**: Code coverage reports uploaded to Codecov
 
-2. **Lighthouse Performance** (`.github/workflows/lighthouse.yml`):
-   - **Manual/Weekly execution**
-   - **Performance metrics** and accessibility
-   - **Independent** from main deployment
+**Deployment**:
+- **Automatic**: GitHub Pages deploys from main branch automatically
+- **No additional workflow needed**
 
 ## 🌐 Local Development
 
-### Option 1: Python (Recommended)
+### Option 1: Node.js with Auto-open (Recommended)
 ```bash
-cd /path/to/project
-python3 -m http.server 8000
-# Access: http://localhost:8000
+# Install dependencies
+npm install
+
+# Start development server (opens browser automatically)
+npm run dev
+
+# Access: http://localhost:8000 (opens automatically)
 ```
 
-### Option 2: Node.js (Live Reload)
+### Option 2: Python Server
 ```bash
-npm install -g live-server
-cd /path/to/project
-live-server
+# Simple static server
+npm start
+# or manually:
+python3 -m http.server 8000
+
+# Access: http://localhost:8000
 ```
 
 ### Option 3: VS Code Live Server

@@ -5,6 +5,8 @@ module.exports = {
     "comment-empty-line-before": null,
     "selector-class-pattern": null,
     "selector-id-pattern": null,
-    "no-descending-specificity": null
+    "no-descending-specificity": null,
+    "keyframes-name-pattern": null,
+    "color-hex-length": null
   }
 };

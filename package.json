@@ -7,6 +7,8 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "serve": "python3 -m http.server 8000",
+    "dev": "npx http-server -p 8000 -o",
+    "start": "npm run serve",
     "validate-html": "html-validate *.html",
     "lint:css": "stylelint css/*.css"
   },
