@@ -1,0 +1,35 @@
+# Dependências do Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Cobertura de testes
+coverage/
+
+# Arquivos de cache do Jest
+jest.cache/
+
+# Logs
+*.log
+
+# Arquivos temporários
+.tmp/
+.temp/
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos do IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Arquivos de build (se houver)
+dist/
+build/
+
+# Arquivo de configuração local (se houver)
+.env.local
