@@ -35,7 +35,7 @@ Personal website developed with HTML, CSS, and vanilla JavaScript, focused on si
 # Install dependencies
 npm install
 
-# Start development server (with live reload)
+# Start development server
 npm start
 
 # Run all tests
@@ -75,38 +75,28 @@ The project uses GitHub Actions for continuous integration:
 
 ## 🌐 Local Development
 
-### Option 1: Live Server with Auto-reload (Recommended)
+### Option 1: Node.js with Auto-open (Recommended)
 ```bash
 # Install dependencies
 npm install
 
-# Start development server with live reload
-npm start
-# or
+# Start development server (opens browser automatically)
 npm run dev
 
 # Access: http://localhost:8000 (opens automatically)
 ```
 
-### Option 2: Alternative Node.js Server
-```bash
-# No extra dependencies needed
-npm run dev:alt
-
-# Access: http://localhost:8000 (opens automatically)
-```
-
-### Option 3: Python Server (Fallback)
+### Option 2: Python Server
 ```bash
 # Simple static server
-npm run serve
+npm start
 # or manually:
 python3 -m http.server 8000
 
 # Access: http://localhost:8000
 ```
 
-### Option 4: VS Code Live Server
+### Option 3: VS Code Live Server
 1. Install the "Live Server" extension
 2. Right-click on `index.html`
 3. Select "Open with Live Server"
