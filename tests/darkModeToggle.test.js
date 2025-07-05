@@ -2,18 +2,8 @@
  * @jest-environment jsdom
  */
 
-// Mock of localStorage
-const localStorageMock = {
-    getItem: jest.fn(),
-    setItem: jest.fn(),
-    removeItem: jest.fn(),
-    clear: jest.fn(),
-};
-global.localStorage = localStorageMock;
-
 beforeEach(() => {
-    localStorageMock.getItem.mockClear();
-    localStorageMock.setItem.mockClear();
+    // Não precisa mais limpar localStorageMock, pois está em setup.js
     jest.resetModules();
 });
 
