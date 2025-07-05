@@ -18,18 +18,25 @@ function setupDarkModeToggle(toggleButton) {
     const isDarkMode = localStorage.getItem('dark-mode') === 'true';
 
     if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        document.documentElement.classList.add('dark-mode');
         document.querySelector('header').classList.add('dark-mode');
         document.querySelector('nav').classList.add('dark-mode');
         const footer = document.querySelector('footer');
         if (footer) {
             footer.classList.add('dark-mode');
         }
+    } else {
+        document.body.classList.remove('dark-mode');
+        document.documentElement.classList.remove('dark-mode');
     }
 
     toggleButton.addEventListener('click', function() {
         const willBeDarkMode = !document.body.classList.contains('dark-mode');
 
+        // Toggle dark mode on both body and html
         document.body.classList.toggle('dark-mode');
+        document.documentElement.classList.toggle('dark-mode');
         document.querySelector('header').classList.toggle('dark-mode');
         document.querySelector('nav').classList.toggle('dark-mode');
         const footer = document.querySelector('footer');

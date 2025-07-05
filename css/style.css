@@ -1,4 +1,4 @@
-body {
+html {
     font-family: sans-serif;
     font-size: 20px;
     padding: 0;
@@ -6,8 +6,11 @@ body {
     color: #333;
     max-width: 800px;
     margin: 0 auto;
+}
+
+body {
     opacity: 0;
-    transition: opacity 0.3s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
 }
 
 body.loaded {
@@ -143,38 +146,46 @@ nav ul li a {
 }
 
 /* Dark mode */
-body.dark-mode {
+body.dark-mode,
+html.dark-mode {
     background-color: #2c2c2c;
     color: #fff;
 }
 
-header.dark-mode {
+header.dark-mode,
+html.dark-mode header {
     color: #fff;
 }
 
-nav.dark-mode ul li a {
+nav.dark-mode ul li a,
+html.dark-mode nav ul li a {
     color: #fff;
 }
 
-footer.dark-mode {
+footer.dark-mode,
+html.dark-mode footer {
     background-color: #2c2c2c;
     color: #fff;
 }
 
-footer.dark-mode a {
+footer.dark-mode a,
+html.dark-mode footer a {
     color: #fff;
 }
 
-footer.dark-mode a:hover {
+footer.dark-mode a:hover,
+html.dark-mode footer a:hover {
     color: #0073e6;
 }
 
 /* Links in dark mode */
-body.dark-mode a {
+body.dark-mode a,
+html.dark-mode a {
     color: #66b3ff;
 }
 
-body.dark-mode a:hover {
+body.dark-mode a:hover,
+html.dark-mode a:hover {
     color: #99ccff;
 }
 
@@ -193,11 +204,13 @@ body.dark-mode a:hover {
     color: #666;
 }
 
-body.dark-mode .dark-mode-button {
+body.dark-mode .dark-mode-button,
+html.dark-mode .dark-mode-button {
     color: #fff;
 }
 
-body.dark-mode .dark-mode-button:hover {
+body.dark-mode .dark-mode-button:hover,
+html.dark-mode .dark-mode-button:hover {
     color: #ccc;
 }
 
@@ -368,7 +381,8 @@ footer p {
 }
 
 /* Dark mode for buttons */
-body.dark-mode .game-item {
+body.dark-mode .game-item,
+html.dark-mode .game-item {
     border-color: #555;
     background-color: #3a3a3a;
 }
