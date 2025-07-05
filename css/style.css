@@ -106,6 +106,15 @@ footer.dark-mode a:hover {
     color: #0073e6;
 }
 
+/* Links in dark mode */
+body.dark-mode a {
+    color: #66b3ff;
+}
+
+body.dark-mode a:hover {
+    color: #99ccff;
+}
+
 .dark-mode-button {
     background: none;
     border: none;
