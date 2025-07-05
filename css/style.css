@@ -386,3 +386,10 @@ html.dark-mode .game-item {
     border-color: #555;
     background-color: #3a3a3a;
 }
+
+body.dark-mode .btn-primary,
+html.dark-mode .btn-primary,
+body.dark-mode .btn-secondary,
+html.dark-mode .btn-secondary {
+    color: white !important;
+}
