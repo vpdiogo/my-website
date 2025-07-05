@@ -14,22 +14,18 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function setupDarkModeToggle(toggleButton) {
-    // Centralize: only apply to <html> and <body>
+    // Aplica apenas em <html>
     const isDarkMode = localStorage.getItem('dark-mode') === 'true';
 
     if (isDarkMode) {
-        document.body.classList.add('dark-mode');
         document.documentElement.classList.add('dark-mode');
     } else {
-        document.body.classList.remove('dark-mode');
         document.documentElement.classList.remove('dark-mode');
     }
 
     toggleButton.addEventListener('click', function() {
-        const willBeDarkMode = !document.body.classList.contains('dark-mode');
-        document.body.classList.toggle('dark-mode');
+        const willBeDarkMode = !document.documentElement.classList.contains('dark-mode');
         document.documentElement.classList.toggle('dark-mode');
-        // Do not manipulate header/nav/footer directly
         localStorage.setItem('dark-mode', willBeDarkMode ? 'true' : 'false');
     });
 }

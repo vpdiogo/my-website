@@ -3,7 +3,7 @@
  */
 
 beforeEach(() => {
-    // Não precisa mais limpar localStorageMock, pois está em setup.js
+    // No need to clear localStorageMock anymore, as it's handled in setup.js
     jest.resetModules();
 });
 
