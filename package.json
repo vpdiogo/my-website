@@ -1,0 +1,28 @@
+{
+  "name": "vitor-diogo-website",
+  "version": "1.0.0",
+  "description": "Site pessoal do Vitor Diogo",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "serve": "python3 -m http.server 8000",
+    "validate-html": "html-validate *.html",
+    "lint:css": "stylelint css/*.css"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "html-validate": "^8.7.0",
+    "stylelint": "^15.11.0",
+    "stylelint-config-standard": "^34.0.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": ["<rootDir>/tests/setup.js"],
+    "collectCoverageFrom": [
+      "js/*.js",
+      "!js/node_modules/**"
+    ]
+  }
+}

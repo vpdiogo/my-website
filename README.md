@@ -1,39 +1,145 @@
-# Meu Site Pessoal
+# Vitor Diogo - Personal Website
 
-Este repositório contém o código-fonte do meu site pessoal, hospedado no GitHub Pages.
+[![Tests](https://github.com/vpdiogo/my-website/workflows/Test%20and%20Deploy/badge.svg)](https://github.com/vpdiogo/my-website/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Descrição
+Personal website developed with HTML, CSS, and vanilla JavaScript, focused on simplicity and performance.
 
-Este site apresenta informações sobre mim, meus projetos, meu blog e outras coisas relacionadas à minha carreira e interesses.
+## 🚀 Features
 
-## Tecnologias Utilizadas
+- **Responsive Design**: Adapts to different screen sizes
+- **Dark Mode**: Toggle to switch between light and dark themes
+- **Dynamic Download**: Integration with GitHub API for automatic downloads
+- **Modular Components**: Header and footer loaded dynamically
 
-- HTML
-- CSS
-- JavaScript
+## 🛠️ Technologies
 
-## Estrutura do Projeto
+- HTML5
+- CSS3 (with Flexbox)
+- JavaScript (ES6+)
+- Font Awesome (icons)
+- GitHub API
 
-- `index.html`: Página inicial do site.
-- `projects.html`: Página com a lista de projetos.
-- `blog.html`: Página do blog.
-- `css/style.css`: Arquivo de estilos CSS.
-- `js/loadComponents.js`: Script para carregar componentes de cabeçalho e rodapé.
+## 📋 Pages
 
-## Como Clonar e Configurar
+- **About**: Personal and professional information
+- **Projects**: Development project portfolio
+- **GameDev**: Games developed with downloads
+- **Blog**: Articles and posts (in development)
 
-1. Clone o repositório:
-    ```bash
-    git clone https://github.com/seu-usuario/seu-repositorio.git
-    ```
+## 🧪 Testing and CI/CD
 
-2. Navegue até o diretório do projeto:
-    ```bash
-    cd seu-repositorio
-    ```
+### Run tests locally
 
-3. Abra o arquivo `index.html` no seu navegador para visualizar o site localmente.
+```bash
+# Install dependencies
+npm install
 
-## Contato
+# Run all tests
+npm test
 
-Para conferir o resultado ou entrar em contato, visite (https://github.com/vpdiogo/my-website).
+# Run tests in watch mode
+npm run test:watch
+
+# Generate coverage report
+npm run test:coverage
+
+# Validate HTML
+npm run validate-html
+
+# Lint CSS
+npm run lint:css
+```
+
+### Test Structure
+
+- **`tests/loadComponents.test.js`**: Tests header/footer loading
+- **`tests/gameDownload.test.js`**: Tests GitHub API integration
+- **`tests/darkModeToggle.test.js`**: Tests dark mode functionality
+
+### CI/CD Pipeline
+
+The project uses GitHub Actions for:
+
+1. **Testing**: Jest for unit tests
+2. **Validation**: HTML and CSS linting
+3. **Performance**: Lighthouse CI for quality metrics
+4. **Deploy**: Automatic deployment to GitHub Pages
+
+## 🌐 Local Development
+
+### Option 1: Python (Recommended)
+```bash
+cd /path/to/project
+python3 -m http.server 8000
+# Access: http://localhost:8000
+```
+
+### Option 2: Node.js (Live Reload)
+```bash
+npm install -g live-server
+cd /path/to/project
+live-server
+```
+
+### Option 3: VS Code Live Server
+1. Install the "Live Server" extension
+2. Right-click on `index.html`
+3. Select "Open with Live Server"
+
+## 📁 Project Structure
+
+```
+.
+├── assets/
+│   └── images/
+├── css/
+│   └── style.css
+├── js/
+│   ├── darkModeToggle.js
+│   ├── gameDownload.js
+│   └── loadComponents.js
+├── partials/
+│   ├── header.html
+│   └── footer.html
+├── tests/
+│   ├── *.test.js
+│   └── setup.js
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+├── index.html
+├── projects.html
+├── gamedev.html
+├── blog.html
+├── package.json
+└── README.md
+```
+
+## 🔧 Configuration
+
+### GitHub API Variables
+
+To change the games repository, edit in `js/gameDownload.js`:
+
+```javascript
+const repoOwner = 'vpdiogo';
+const repoName = 'classic-games-python';
+```
+
+### Custom Domain
+
+The `CNAME` file contains the custom domain:
+```
+vitorpdiogo.com
+```
+
+## 📄 License
+
+MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📧 Contact
+
+- **Email**: contato@vitorpdiogo.com
+- **LinkedIn**: [vitorpdiogo](https://linkedin.com/in/vitorpdiogo)
+- **GitHub**: [vpdiogo](https://github.com/vpdiogo)
