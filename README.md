@@ -35,6 +35,9 @@ Personal website developed with HTML, CSS, and vanilla JavaScript, focused on si
 # Install dependencies
 npm install
 
+# Start development server (with live reload)
+npm start
+
 # Run all tests
 npm test
 
@@ -59,36 +62,51 @@ npm run lint:css
 
 ### CI/CD Pipeline
 
-The project uses GitHub Actions with two workflows:
+The project uses GitHub Actions for continuous integration:
 
-1. **Main CI/CD** (`.github/workflows/ci.yml`):
-   - **Testing**: Jest for unit tests
-   - **Validation**: HTML and CSS linting  
-   - **Coverage**: Code coverage reports
-   - **Deploy**: Automatic to GitHub Pages (main branch only)
+**Main CI** (`.github/workflows/ci.yml`):
+- **Testing**: Jest for unit tests with coverage
+- **Validation**: HTML validation and CSS linting
+- **Quality**: Code coverage reports uploaded to Codecov
 
-2. **Lighthouse Performance** (`.github/workflows/lighthouse.yml`):
-   - **Manual/Weekly execution**
-   - **Performance metrics** and accessibility
-   - **Independent** from main deployment
+**Deployment**:
+- **Automatic**: GitHub Pages deploys from main branch automatically
+- **No additional workflow needed**
 
 ## 🌐 Local Development
 
-### Option 1: Python (Recommended)
+### Option 1: Live Server with Auto-reload (Recommended)
 ```bash
-cd /path/to/project
+# Install dependencies
+npm install
+
+# Start development server with live reload
+npm start
+# or
+npm run dev
+
+# Access: http://localhost:8000 (opens automatically)
+```
+
+### Option 2: Alternative Node.js Server
+```bash
+# No extra dependencies needed
+npm run dev:alt
+
+# Access: http://localhost:8000 (opens automatically)
+```
+
+### Option 3: Python Server (Fallback)
+```bash
+# Simple static server
+npm run serve
+# or manually:
 python3 -m http.server 8000
+
 # Access: http://localhost:8000
 ```
 
-### Option 2: Node.js (Live Reload)
-```bash
-npm install -g live-server
-cd /path/to/project
-live-server
-```
-
-### Option 3: VS Code Live Server
+### Option 4: VS Code Live Server
 1. Install the "Live Server" extension
 2. Right-click on `index.html`
 3. Select "Open with Live Server"

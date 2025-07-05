@@ -7,6 +7,9 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "serve": "python3 -m http.server 8000",
+    "dev": "live-server --port=8000 --open=/",
+    "dev:alt": "npx http-server -p 8000 -o",
+    "start": "npm run dev",
     "validate-html": "html-validate *.html",
     "lint:css": "stylelint css/*.css"
   },
@@ -15,7 +18,8 @@
     "jest-environment-jsdom": "^29.7.0",
     "html-validate": "^8.7.0",
     "stylelint": "^15.11.0",
-    "stylelint-config-standard": "^34.0.0"
+    "stylelint-config-standard": "^34.0.0",
+    "live-server": "^1.2.2"
   },
   "jest": {
     "testEnvironment": "jsdom",
