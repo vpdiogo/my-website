@@ -59,12 +59,18 @@ npm run lint:css
 
 ### CI/CD Pipeline
 
-The project uses GitHub Actions for:
+The project uses GitHub Actions with two workflows:
 
-1. **Testing**: Jest for unit tests
-2. **Validation**: HTML and CSS linting
-3. **Performance**: Lighthouse CI for quality metrics
-4. **Deploy**: Automatic deployment to GitHub Pages
+1. **Main CI/CD** (`.github/workflows/ci.yml`):
+   - **Testing**: Jest for unit tests
+   - **Validation**: HTML and CSS linting  
+   - **Coverage**: Code coverage reports
+   - **Deploy**: Automatic to GitHub Pages (main branch only)
+
+2. **Lighthouse Performance** (`.github/workflows/lighthouse.yml`):
+   - **Manual/Weekly execution**
+   - **Performance metrics** and accessibility
+   - **Independent** from main deployment
 
 ## 🌐 Local Development
 

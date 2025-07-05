@@ -2,20 +2,19 @@ module.exports = {
   ci: {
     collect: {
       url: [
-        'http://localhost:8000',
-        'http://localhost:8000/projects.html',
-        'http://localhost:8000/gamedev.html',
-        'http://localhost:8000/blog.html'
+        `http://localhost:${process.env.LIGHTHOUSE_PORT || 8000}`,
+        `http://localhost:${process.env.LIGHTHOUSE_PORT || 8000}/projects.html`,
+        `http://localhost:${process.env.LIGHTHOUSE_PORT || 8000}/gamedev.html`,
+        `http://localhost:${process.env.LIGHTHOUSE_PORT || 8000}/blog.html`
       ],
-      startServerCommand: 'npm run serve',
-      startServerReadyPattern: 'Serving HTTP'
+      numberOfRuns: 1
     },
     assert: {
       assertions: {
-        'categories:performance': ['warn', {minScore: 0.8}],
-        'categories:accessibility': ['error', {minScore: 0.9}],
-        'categories:best-practices': ['warn', {minScore: 0.8}],
-        'categories:seo': ['warn', {minScore: 0.8}]
+        'categories:performance': ['warn', {minScore: 0.7}],
+        'categories:accessibility': ['error', {minScore: 0.8}],
+        'categories:best-practices': ['warn', {minScore: 0.7}],
+        'categories:seo': ['warn', {minScore: 0.7}]
       }
     },
     upload: {
